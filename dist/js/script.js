@@ -12,9 +12,19 @@ window.onscroll = function () {
 
 // ham
 const hamburger = document.querySelector("#ham");
-const navmenu = document.querySelector("#nav-menu");
+const navmenu = document.querySelector(".nav-menu");
 
 hamburger.addEventListener("click", function () {
   hamburger.classList.toggle("ham-active");
   navmenu.classList.toggle("hidden");
+});
+
+// klik diluar sidebar untuk close nav hamenu
+const ham = document.querySelector("#ham");
+
+document.addEventListener("click", function (e) {
+  if (!ham.contains(e.target) && !navmenu.contains(e.target)) {
+    hamburger.classList.remove("ham-active");
+    navmenu.classList.toggle("hidden");
+  }
 });
